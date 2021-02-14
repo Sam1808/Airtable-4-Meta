@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Rawdata(models.Model):
     upload_datetime = models.DateTimeField('Дата/время запуска', auto_now_add=True)
     data = models.TextField('Данные',)
@@ -10,6 +11,7 @@ class Method(models.Model):
 
     def __str__(self):
         return self.method
+
 
 class Psychotherapist(models.Model):    
     airtable_id = models.CharField('ID записи Airtable', max_length=18)
