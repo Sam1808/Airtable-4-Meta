@@ -3,7 +3,7 @@ from django.core.files.base import ContentFile
 from django.core.management.base import BaseCommand
 from environs import Env
 
-from tparser.models import Rawdata, Psychotherapist
+from tparser.models import Rawdata, Psychotherapist, Method
 
 
 

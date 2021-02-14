@@ -67,23 +67,23 @@ Django 3.0 и выше, Django ORM, PostgreSQL, Bootstrap.
 
 Для корректной работы вам нужен **Python 3.7 или выше**.
 
-1.1 Скачайте код:<br>
+2.1 Скачайте код:<br>
 `git clone https://github.com/Sam1808/Airtable-4-Meta.git`
 
-1.2 Создайте виртуальное окружение, [активируте](https://devpractice.ru/python-lesson-17-virtual-envs/#p33) его и перейдите в папку `airtable4meta`:<br>
+2.2 Создайте виртуальное окружение, [активируте](https://devpractice.ru/python-lesson-17-virtual-envs/#p33) его и перейдите в папку `Airtable-4-Meta/airtable4meta`:<br>
 `python3 -m venv _название_окружения_`
 
-1.3 Обновите установщик пакетов `pip` (*не помешает*) и установите зависимости:<br>
+2.3 Обновите установщик пакетов `pip` (*не помешает*) и установите зависимости:<br>
 `pip install --upgrade pip`<br>
 `pip install -r requirements.txt`
 
 Будьте внимательны и почитайте про [psycord-binary](https://www.psycopg.org/docs/install.html#psycopg-vs-psycopg-binary).
 
-1.4 Если необходимо, установите `PostgreSQL`.
+2.4 Если необходимо, установите `PostgreSQL`.
 
-1.5 Создайте `пользователя`, при помощи которого будем соединяться с базой данной из Django, и собственно `базу данных` для проекта.
+2.5 Создайте `пользователя`, при помощи которого будем соединяться с базой данной из Django, и собственно `базу данных` для проекта.
 
-1.6 Настраиваем раздел `DATABASES` конфигурационного файла `airtable4meta/settings.py`.
+2.6 Настраиваем раздел `DATABASES` конфигурационного файла `airtable4meta/settings.py`.
 
 ```
 DATABASES = {
@@ -98,3 +98,27 @@ DATABASES = {
 }
 ```
 
+2.7 Подготовьте миграции и примените их: <br>
+`python manage.py makemigrations` <br>
+`python manage.py migrate `
+
+2.8 Создайте суперпользователя: <br>
+`python manage.py createsuperuser`
+
+2.9 Запустите web-сервер, просто для того, чтобы убедиться что все предыдущие шаги сделаны правильно: <br>
+`python manage.py runserver` <br>
+Сервер будет доступен по адресу `http://127.0.0.1:8000/`. Перейдите в Django-admin `http://127.0.0.1:8000/admin` , убедитесь что пароль суперпользователя работает, что есть сущности в базе данных. Пока ещё все пусто, но это мы быстро исправим.
+
+2.10 Создайте файл `.env` со следующим содежимым: 
+```
+AIRTABLE_API_KEY="ваш API KEY п.1.3"
+AIRTABLE_BASE_ID="ID вашей Airtable базы п.1.4"
+AIRTABLE_NAME="название таблицы, которую будем парсить"
+```
+
+2.11 Выпейте хорошего крепкого кофе, вы сделали почти все... 
+
+## 3. Запуск.
+
+3.1 Скрип, который будет парсить нашу табличку, запускается очень просто: <br>
+`python manage.py load_data`
