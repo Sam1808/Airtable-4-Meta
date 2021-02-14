@@ -38,7 +38,31 @@
 **Согласованный стек технологий:**
 Django 3.0 и выше, Django ORM, PostgreSQL, Bootstrap.
 
-## 1. Установка. 
+
+
+## 1. Подготовка. 
+<br>
+
+Для того чтобы реализовать весь запрошенный функционал, мы будем работать с копией предложенной Airtable [таблицы терапевтов](https://airtable.com/shrlHQArEK0WNdylo). Для этого...
+
+1.1 Заведите [учетную запись](https://airtable.com/login) Airtable.
+
+1.2 Перейдите в [исходную таблицу](https://airtable.com/shrlHQArEK0WNdylo) и скопируйте ее себе в учетную запись. 
+
+![Copy_base](./screenshots/copy_base.png)
+
+1.3 Перейдите в раздел `Account` своего Airtable профиля и сгенерируйте `API key`.
+
+![Copy_base](./screenshots/api_key.png)
+
+Запоминте его, он нам очень пригодится. ;)
+
+1.4 В скопированной таблице перейдите в `Help->API documentation`. Запомните `ID` своей базы данных:
+![Base_ID](./screenshots/base_id.png)
+
+Часть дела сделано, поскакали дальше... 
+
+## 2. Установка. 
 <br>
 
 Для корректной работы вам нужен **Python 3.7 или выше**.
@@ -52,4 +76,25 @@ Django 3.0 и выше, Django ORM, PostgreSQL, Bootstrap.
 1.3 Обновите установщик пакетов `pip` (*не помешает*) и установите зависимости:<br>
 `pip install --upgrade pip`<br>
 `pip install -r requirements.txt`
+
+Будьте внимательны и почитайте про [psycord-binary](https://www.psycopg.org/docs/install.html#psycopg-vs-psycopg-binary).
+
+1.4 Если необходимо, установите `PostgreSQL`.
+
+1.5 Создайте `пользователя`, при помощи которого будем соединяться с базой данной из Django, и собственно `базу данных` для проекта.
+
+1.6 Настраиваем раздел `DATABASES` конфигурационного файла `airtable4meta/settings.py`.
+
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'имя базы данных',
+        'USER' : 'имя пользователя',
+        'PASSWORD' : 'пароль пользователя',
+        'HOST' : '127.0.0.1',
+        'PORT' : '5432',
+    }
+}
+```
 
