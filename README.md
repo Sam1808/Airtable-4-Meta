@@ -29,14 +29,14 @@
     - дата запуска;
     - выгруженные данные.
 
-На фронтеде нужно создать страницу терапевта по приложенному мокапу, где будут отображаться все выгруженные данные по каждому терапевту:
+На фронтенде нужно создать страницу терапевта по приложенному мокапу, где будут отображаться все выгруженные данные по каждому терапевту:
 
 ![Мокап](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F46ee3ee9-5cfc-4eba-82a4-8d584b0d3c2a%2FUntitled.png?table=block&id=0861594f-374c-4443-a968-168e86554483&spaceId=78a60c45-aab1-4095-a55d-9baf2e2de012&width=2560&userId=&cache=v2)
 
 <br>
 
 **Согласованный стек технологий:**
-Django 3.0 и выше, Django ORM, PostgreSQL, Bootstrap.
+Python 3.0 и выше, Django ORM, PostgreSQL, Bootstrap.
 
 <br>
 
